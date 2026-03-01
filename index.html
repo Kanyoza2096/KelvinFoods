@@ -66,10 +66,12 @@
     </div>
 
     <div class="flex items-center gap-4">
-      <button id="themeToggle" class="w-9 h-9 rounded-lg hover:bg-white/10 transition">
-        <i id="themeIcon" class="fas fa-moon"></i>
-      </button>
+      <!-- Owner Profile Picture -->
+      <div class="w-9 h-9 rounded-full overflow-hidden border-2 border-amber-400 flex items-center justify-center">
+        <img src="owner.jpg" alt="Owner" class="w-full h-full object-cover">
+      </div>
 
+      <!-- Contact Button -->
       <a href="tel:0894148883"
          class="bg-amber-400 hover:bg-amber-300 text-black font-semibold px-5 py-2 rounded-xl transition">
         0894 14 88 83
@@ -216,24 +218,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
   document.getElementById("soya-price").textContent = formatPrice(soyaPrice);
   document.getElementById("rice-price").textContent = formatPrice(ricePrice);
-
-  const toggle = document.getElementById("themeToggle");
-  const icon = document.getElementById("themeIcon");
-  const html = document.documentElement;
-
-  function setTheme(theme){
-    html.classList.toggle("dark", theme==="dark");
-    icon.className = theme==="dark" ? "fas fa-sun" : "fas fa-moon";
-    localStorage.setItem("theme", theme);
-  }
-
-  const saved = localStorage.getItem("theme") || "dark";
-  setTheme(saved);
-
-  toggle.addEventListener("click", function(){
-    const isDark = html.classList.contains("dark");
-    setTheme(isDark ? "light" : "dark");
-  });
 
   const navbar = document.getElementById("navbar");
   let lastScroll = 0;
